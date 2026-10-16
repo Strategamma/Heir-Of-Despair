@@ -331,7 +331,7 @@ wss.on("connection", (ws, req) => {
     p.online = false;
     p.socket = null;
     g.votes = g.votes.filter((id) => id !== p.id);
-    if (g.hostId === p.id) {
+    if (g.hostId === p.id && g.stage !== "abandoned") {
       g.paused = true;
       g.votes = [];
     }

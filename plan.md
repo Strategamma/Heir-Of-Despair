@@ -9,3 +9,6 @@ Pending reactions/Usurper choices, fixed draft passes, host transfer, hidden inf
 
 # Verification
 Engine regression tests, WebSocket authorization/lifecycle tests, syntax and complete suite; browser check host controls and confirmation.
+
+# Outcome
+Implemented. 108 tests and syntax checks pass. Phone browser verified confirmation, four-player restriction and abandoned end screen; no browser errors. Local preview restarted. No deployment or physical-device LAN test.

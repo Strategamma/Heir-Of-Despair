@@ -291,6 +291,10 @@ function kill(g, p) {
   log(g, `${p.name} has fallen.`);
 }
 function attack(g, attacker, target, id) {
+  if (!target.alive) {
+    nextAction(g);
+    return;
+  }
   if (id !== "justiciar") {
     const options = target.hand.filter((c) => ["mirror", "martyr"].includes(c));
     if (options.length) {

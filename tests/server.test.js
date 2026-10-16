@@ -241,3 +241,16 @@ test("LAN mode serves the same game and advertises local host addresses", async 
     local.kill();
   }
 });
+
+test('host resolves offline seats, rejects rejoin, and abandons for everyone', async () => {
+  const host=await client(); await host.send({type:'create',name:'Host'});
+  const peers=[];
+  for(let i=0;i<4;i++){const c=await client();await c.send({type:'join',code:host.session.code,name:'Guest'+i});peers.push(c);}
+  await host.send({type:'start'});
+  const rejected=await peers[0].send({type:'abandon'},m=>m.type==='error'); assert.match(rejected.message,/host/i);
+  const saved=peers[3].session;const offline=host.wait(m=>m.type==='state'&&m.state.players.some(p=>p.id===saved.playerId&&!p.online));peers[3].ws.close();await offline;
+  await host.send({type:'depart-seat',playerId:saved.playerId});assert.equal(host.state.players.find(p=>p.id===saved.playerId).departed,true);
+  const retry=await client();await retry.send({...saved,type:'resume'},m=>m.type==='sessionExpired');
+  await host.send({type:'abandon'});assert.equal(host.state.stage,'abandoned');
+  await host.send({type:'rematch'});assert.equal(host.state.stage,'lobby');assert.equal(host.state.players.length,4);
+});

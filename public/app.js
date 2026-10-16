@@ -126,7 +126,7 @@ const cardStatusLabel = (status) =>
 function playerTile(p, i, selectable = false) {
   const me = p.id === state.me.id,
     identity = p.identity;
-  return `<button data-seat="${p.id}" class="courtier ${!p.alive ? "dead" : ""} ${selectedTargets.includes(p.id) ? "targeted" : ""} ${selectable ? "selectable" : ""} ${state.activePlayerId === p.id ? "acting" : ""} ${identity?.house || ""}" ${selectable ? `data-target="${p.id}"` : "disabled"} ${selectable ? `aria-pressed="${selectedTargets.includes(p.id)}"` : ""} aria-label="${esc(p.name)}${!p.alive ? ", eliminated" : ""}${selectable ? ", select target" : ""}"><span class="seat-heading">SEAT ${i + 1}${me ? " · YOU" : ""}${!p.online ? " · OFFLINE" : ""}</span><strong>${esc(p.name)}</strong><span class="life-status ${p.alive ? "alive" : "fallen"}">${p.alive ? "● Alive" : "✕ Fallen"}</span><span class="courtier-meta">${identity ? esc(houseLabel(identity)) : "Identity concealed"}</span><span class="seal-count">${p.sealCount} ${p.sealCount === 1 ? "Royal Seal" : "Royal Seals"}</span><span class="played-strip">${p.played.length ? p.played.map((c) => `<span class="public-card ${c.status || "played"}"><strong>${icon(c.symbol)}<span>${esc(c.title)}${c.order ? " · " + c.order : ""}</span></strong><small>${cardStatusLabel(c.status)}</small></span>`).join("") : '<span class="no-reveals">No cards revealed</span>'}</span></button>`;
+  return `<button data-seat="${p.id}" class="courtier ${!p.alive ? "dead" : ""} ${selectedTargets.includes(p.id) ? "targeted" : ""} ${selectable ? "selectable" : ""} ${state.activePlayerId === p.id ? "acting" : ""} ${identity?.house || ""}" ${selectable ? `data-target="${p.id}"` : "disabled"} ${selectable ? `aria-pressed="${selectedTargets.includes(p.id)}"` : ""} aria-label="${esc(p.name)}${!p.alive ? ", eliminated" : ""}${selectable ? ", select target" : ""}"><span class="seat-heading">SEAT ${i + 1}${me ? " · YOU" : ""}${p.departed ? " · DEPARTED" : !p.online ? " · OFFLINE" : ""}</span><strong>${esc(p.name)}</strong><span class="life-status ${p.alive ? "alive" : "fallen"}">${p.alive ? "● Alive" : "✕ Fallen"}</span><span class="courtier-meta">${identity ? esc(houseLabel(identity)) : "Identity concealed"}</span><span class="seal-count">${p.sealCount} ${p.sealCount === 1 ? "Royal Seal" : "Royal Seals"}</span><span class="played-strip">${p.played.length ? p.played.map((c) => `<span class="public-card ${c.status || "played"}"><strong>${icon(c.symbol)}<span>${esc(c.title)}${c.order ? " · " + c.order : ""}</span></strong><small>${cardStatusLabel(c.status)}</small></span>`).join("") : '<span class="no-reveals">No cards revealed</span>'}</span></button>`;
 }
 function phaseRoster() {
   const revealed = state.players
@@ -442,6 +442,7 @@ function render() {
   );
   app.innerHTML =
     header() +
+    departedControls() +
     (state
       ? state.stage === "lobby"
         ? lobby()
@@ -451,7 +452,6 @@ function render() {
             ? nightScreen()
             : state.stage === "abandoned" ? abandonedScreen() : dawnScreen()
       : home()) +
-    departedControls() +
     (state && (!connected || state.paused) ? pausePanel() : "");
   animateCourt();
   if (focus && $("#" + focus)) {
