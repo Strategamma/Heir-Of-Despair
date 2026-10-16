@@ -2663,7 +2663,7 @@ button.game-card:hover {
 @media (max-width: 640px) {
   .home-panel h1 {
     font-size: 29px;
-    white-space: nowrap;
+    white-space: normal;
   }
   .home-panel > .muted {
     margin-bottom: 12px;

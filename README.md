@@ -37,7 +37,7 @@ Push this project to the chosen GitHub repository, then create a Render Blueprin
 | Environment | `NODE_ENV=production`, `TABLE_MODE=internet` |
 | Port | Render supplies `PORT` |
 
-The front end and WebSocket share one origin. HTTPS automatically uses `wss://`. Configure the chosen game subdomain in Render/DNS; no final public URL or GitHub repository has been assigned yet. Do not list it as live in Decadence Arcade until hosted multiplayer and real-device checks pass.
+The game is hosted at https://heir-of-despair.onrender.com from https://github.com/Strategamma/Heir-Of-Despair (branch `main`). The front end and WebSocket share one origin; HTTPS automatically uses `wss://`. A custom domain is optional. Do not list it as verified in Decadence Arcade until hosted multiplayer and real-device checks pass.
 
 **Persistence boundary:** live courts live in server memory. Reloads and temporary disconnections recover seats, cards and seals while the process remains alive. A host disconnect pauses the court; all connected players must consent before host control transfers. Restarting/redeploying the server destroys existing courts. Free hosting may cold-start or restart. Durable restart recovery requires an external persistent store and is not implemented or promised by this version.
 

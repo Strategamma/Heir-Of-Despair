@@ -1,6 +1,6 @@
 # Heir of Despair
 
-Social deduction PWA for Decadenceinc.com; 4–10 players. Stack: native browser ES modules/DOM/CSS, Node.js, `ws`, authoritative server. Render deployment; separate local-server LAN mode. The hosted public PWA requires Internet. LAN means connecting browsers directly to a PC's private-IP HTTP origin; install from public HTTPS, not LAN HTTP. Browser LAN discovery is not promised.
+Social deduction PWA for Decadenceinc.com; 4–10 players. Stack: native browser ES modules/DOM/CSS, Node.js, `ws`, authoritative server. Hosted: https://heir-of-despair.onrender.com; separate local-server LAN mode. The hosted public PWA requires Internet. LAN means connecting browsers directly to a PC's private-IP HTTP origin; install from public HTTPS, not LAN HTTP. Browser LAN discovery is not promised.
 
 Theme: royal funeral → dawn → coronation; gold branding, charcoal/ivory/garnet/teal. No throne backdrops. House Ashthorn (rose/garnet), House Stormwing (falcon/teal); odd counts add The Unsworn, neutral survival reward. Readable text, portrait first; settings/install are icons; header uses the generated wordmark. Seats use names and Alive/Fallen labels; no decorative avatars or candles.
 

@@ -20,7 +20,7 @@
 
 ## Still open before release
 
-- Live Render deployment, custom domain and GitHub publication are not configured.
+- GitHub and Render are configured (see hosted checks below). A custom domain remains optional and unconfigured.
 - Physical phones on a real router, firewall/client-isolation behavior, real touch/audio/safe areas, browser-specific PWA installation and installed launch.
 - Deployed cold start, fresh/updated/offline PWA visits and complete live multi-phone match.
 - Complete browser regression pass after final layout/help adjustments. In-app checks are narrower than the full automated script.
@@ -49,3 +49,13 @@ Kingmaker outcomes have a dedicated decree layout, named maker/crowned house, de
 ## Confirmed return to game home — 2026-10-17
 
 Logo opens a stay/leave dialog. Confirmed active-match exit closes the socket, keeps the rejoin secret, and shows Heir home; explicit home mode prevents automatic reconnect, including after reload/online events. Return to your court rejoins the reserved seat. Lobby exit waits for server removal acknowledgment before returning home. Browser verified active cancellation, confirmed home, home reload, same Oracle turn on rejoin, and isolated lobby removal (no Return button). Existing disconnect audit: non-host seat retained, no auto-forfeit/bot; host loss pauses pending return or unanimous connected-player transfer; missing actions/draft/offline-seat next-night gate can stall a permanent departure. State expires on server restart or two hours with nobody online. No permanent-leave rules added.
+
+## Hosted deployment — 2026-10-17
+
+Live URL: https://heir-of-despair.onrender.com; GitHub: Strategamma/Heir-Of-Despair, main (84d3938 at verification). HTTPS health reports ok, internet mode. Served index, app, stylesheet, shared cards, service worker, manifest and both PNG install icons matched local files before the layout correction.
+
+Four independent Chrome browser contexts on Render created/joined, drafted, resolved a complete night to dawn, recovered the same seat/seals after reload, unanimously transferred host control, rejoined the former host without restoring authority, and started the next night. No console/page errors; lobby/dawn screenshots and report in output/hosted-qa. Automation used reduced motion and awaited remote draft/action acknowledgments. The separate hosted WebSocket lifecycle test passed authorization, private projections, host-loss pause, unanimous transfer, rejoin and invalid-secret rejection.
+
+Home inspected at 320/390px; 320px heading overflow found. Local CSS correction allows wrapping; verified against hosted HTML with the corrected stylesheet: scrollWidth 320 at viewport 320. Service-worker cache bumped to v14. This correction is local and must be pushed/deployed; the hosted game still has the overflow.
+
+Physical phones, a complete multi-night match, PWA installation/update/offline behavior and cold-start remain unverified. Restart clears courts; no restart-recovery promise.
