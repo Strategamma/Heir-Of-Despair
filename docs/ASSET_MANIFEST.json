@@ -1,0 +1,61 @@
+{
+  "direction": "Candlelit royal funeral, antique gold sculptural forms, charcoal and ivory, garnet rose and midnight teal falcon; responsive DOM cards and interface.",
+  "platforms": [
+    "mobile portrait",
+    "desktop browser",
+    "installed HTTPS PWA"
+  ],
+  "assets": [
+    {
+      "path": "public/assets/palace.webp",
+      "role": "retained source artwork; no longer used as a backdrop",
+      "source": "Built-in ImageGen original, compressed from palace.png",
+      "size": "1536x1024",
+      "alpha": false,
+      "status": "removed from live backgrounds at user request"
+    },
+    {
+      "path": "public/assets/wordmark.png",
+      "role": "sculpted crown/dagger title",
+      "source": "Built-in ImageGen original, normalized to 900px",
+      "size": "900x600",
+      "alpha": true,
+      "status": "alpha extrema verified 0\u2013255, inspected in interface"
+    },
+    {
+      "path": "public/assets/icon.svg",
+      "role": "original crown app mark",
+      "source": "project-native vector",
+      "size": "512x512 viewBox",
+      "alpha": false,
+      "status": "PNG variants generated at 192 and 512"
+    },
+    {
+      "path": "public/app.js",
+      "role": "card and house vector symbol family",
+      "source": "original project-native SVG paths",
+      "size": "24x24 viewBox",
+      "alpha": true,
+      "status": "all 33 cards rendered via shared data"
+    },
+    {
+      "path": "public/assets/help-*.jpg",
+      "role": "eight current guide screenshots",
+      "source": "actual current UI captured in the in-app browser using development-only example states",
+      "size": "390px wide; full page where needed",
+      "status": "refreshed after card symbols, category names and background corrections"
+    },
+    {
+      "path": "public/assets/serif.ttf",
+      "role": "Cormorant Garamond headings",
+      "license": "SIL OFL; CORMORANT-LICENSE.txt"
+    },
+    {
+      "path": "public/assets/sans.ttf",
+      "role": "Manrope readable UI",
+      "license": "SIL OFL; MANROPE-LICENSE.txt"
+    }
+  ],
+  "provenance": "public/assets/PROVENANCE.md",
+  "constraints": "No publisher artwork or game logo copied; generated logo is dimensional raster artwork, not a runtime 3D mesh. No collisions or animation anchors for interface raster assets. Motion is code-driven with reduced-motion support."
+}
